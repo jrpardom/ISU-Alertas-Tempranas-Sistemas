@@ -1,0 +1,219 @@
+{
+  "modelo": "Regresión logística (L2, C=0.5)",
+  "sklearn_version": "1.9.1",
+  "n_registros": 762,
+  "tasa_desercion": 0.134,
+  "variables": [
+    "FUENTES_FINANCIACION",
+    "PERSONAS_A_CARGO",
+    "DIFICULTAD_PAGO_MATRICULA",
+    "TURNO_TRABAJO_ESTUDIO",
+    "TIPO_VIVIENDA_RESIDENCIA",
+    "ZONA_VIVIENDA_RESIDENCIA",
+    "VIVE_PADRES_FAMILIAR",
+    "SISBEN",
+    "NUM_HIJOS",
+    "VIVE_PERSONAS_MAYORES",
+    "FRECUENCIA_USO_CANALES_ATENCION",
+    "COMUNA",
+    "NIV_EDUCATIVO_PADRE_CAT",
+    "NIV_EDUCATIVO_MADRE_CAT",
+    "ES_VULNERABLE",
+    "HORAS_FUERA_CASA",
+    "RECURSOS_TECNOLOGICOS",
+    "HERMANOS_CAT",
+    "CARGA_LABORAL",
+    "CARGA_HOGAR",
+    "CIENCIAS BÁSICAS_bin",
+    "CIENCIAS BÁSICAS DE INGENIERÍA_bin",
+    "INGENIERÍA APLICADA_bin",
+    "INSTITUCIONAL_bin"
+  ],
+  "categorias": {
+    "FUENTES_FINANCIACION": [
+      "Beca",
+      "Crédito",
+      "Otro / No aplica",
+      "Recursos propios"
+    ],
+    "PERSONAS_A_CARGO": [
+      "CON_CARGAS",
+      "SIN_CARGAS"
+    ],
+    "DIFICULTAD_PAGO_MATRICULA": [
+      "No",
+      "Si"
+    ],
+    "TURNO_TRABAJO_ESTUDIO": [
+      "Diurno",
+      "Mixto",
+      "Nocturno"
+    ],
+    "TIPO_VIVIENDA_RESIDENCIA": [
+      "Arrendada",
+      "Propia pagada",
+      "Propia pagandose"
+    ],
+    "ZONA_VIVIENDA_RESIDENCIA": [
+      "Zona rural",
+      "Zona urbana"
+    ],
+    "VIVE_PADRES_FAMILIAR": [
+      "No",
+      "Si"
+    ],
+    "SISBEN": [
+      "No",
+      "Si"
+    ],
+    "NUM_HIJOS": [
+      "-1",
+      "0",
+      "1",
+      "2",
+      "3",
+      "5"
+    ],
+    "VIVE_PERSONAS_MAYORES": [
+      "No",
+      "Si"
+    ],
+    "FRECUENCIA_USO_CANALES_ATENCION": [
+      "Casi nunca",
+      "Con poca frecuencia",
+      "Frecuentemente",
+      "Nunca"
+    ],
+    "COMUNA": [
+      "Bogota",
+      "Comuna Centro",
+      "Comuna Norte",
+      "Comuna Occidental",
+      "Comuna Oriental",
+      "Comuna Sur Occidental",
+      "Comuna Sur Oriental",
+      "Municipios Aledaños",
+      "Sin agrupar"
+    ],
+    "NIV_EDUCATIVO_PADRE_CAT": [
+      "Básica",
+      "Media",
+      "Superior"
+    ],
+    "NIV_EDUCATIVO_MADRE_CAT": [
+      "Básica",
+      "Media",
+      "Superior"
+    ],
+    "ES_VULNERABLE": [
+      "No",
+      "Sí"
+    ],
+    "HORAS_FUERA_CASA": [
+      "ALTO",
+      "BAJO",
+      "MEDIO"
+    ],
+    "RECURSOS_TECNOLOGICOS": [
+      "BASICOS",
+      "COMPLETOS",
+      "SIN_RECURSOS"
+    ],
+    "HERMANOS_CAT": [
+      "NINGUNO",
+      "POCOS_1_2",
+      "VARIOS_3_MAS"
+    ],
+    "CARGA_LABORAL": [
+      "ALTA_>20",
+      "NO_TRABAJA",
+      "PARCIAL_1_20"
+    ],
+    "CARGA_HOGAR": [
+      "CON_NINOS_1_2",
+      "CON_NINOS_3_MAS",
+      "DESCONOCIDO",
+      "HOGAR_SIN_NINOS",
+      "SOLO_SIN_NINOS"
+    ],
+    "CIENCIAS BÁSICAS_bin": [
+      "0–0.99",
+      "1–1.99",
+      "2–2.99",
+      "3–3.99",
+      "4–5",
+      "Sin nota"
+    ],
+    "CIENCIAS BÁSICAS DE INGENIERÍA_bin": [
+      "0–0.99",
+      "1–1.99",
+      "2–2.99",
+      "3–3.99",
+      "4–5",
+      "Sin nota"
+    ],
+    "INGENIERÍA APLICADA_bin": [
+      "0–0.99",
+      "1–1.99",
+      "2–2.99",
+      "3–3.99",
+      "4–5",
+      "Sin nota"
+    ],
+    "INSTITUCIONAL_bin": [
+      "0–0.99",
+      "1–1.99",
+      "2–2.99",
+      "3–3.99",
+      "4–5",
+      "Sin nota"
+    ]
+  },
+  "moda": {
+    "FUENTES_FINANCIACION": "Recursos propios",
+    "PERSONAS_A_CARGO": "SIN_CARGAS",
+    "DIFICULTAD_PAGO_MATRICULA": "No",
+    "TURNO_TRABAJO_ESTUDIO": "Diurno",
+    "TIPO_VIVIENDA_RESIDENCIA": "Arrendada",
+    "ZONA_VIVIENDA_RESIDENCIA": "Zona urbana",
+    "VIVE_PADRES_FAMILIAR": "Si",
+    "SISBEN": "Si",
+    "NUM_HIJOS": "0",
+    "VIVE_PERSONAS_MAYORES": "No",
+    "FRECUENCIA_USO_CANALES_ATENCION": "Con poca frecuencia",
+    "COMUNA": "Municipios Aledaños",
+    "NIV_EDUCATIVO_PADRE_CAT": "Media",
+    "NIV_EDUCATIVO_MADRE_CAT": "Media",
+    "ES_VULNERABLE": "No",
+    "HORAS_FUERA_CASA": "BAJO",
+    "RECURSOS_TECNOLOGICOS": "COMPLETOS",
+    "HERMANOS_CAT": "POCOS_1_2",
+    "CARGA_LABORAL": "NO_TRABAJA",
+    "CARGA_HOGAR": "HOGAR_SIN_NINOS",
+    "CIENCIAS BÁSICAS_bin": "3–3.99",
+    "CIENCIAS BÁSICAS DE INGENIERÍA_bin": "4–5",
+    "INGENIERÍA APLICADA_bin": "4–5",
+    "INSTITUCIONAL_bin": "4–5"
+  },
+  "excluidas": [
+    "ORIENTACION_CAT",
+    "ES_GRUPO_ETNICO",
+    "GRUPO_ETNICO_CAT",
+    "VICTIMA_VIOLENCIA",
+    "CONDICION_DISCAPACIDAD",
+    "IMC_CAT",
+    "HABITOS_RIESGO",
+    "VIVE_PERSONAS_PATOLOGIAS"
+  ],
+  "umbrales": {
+    "medio": 0.15,
+    "alto": 0.4
+  },
+  "metricas": {
+    "roc_auc": 0.871,
+    "pr_auc": 0.623,
+    "brier": 0.077,
+    "recall_alerta_media_o_alta": 0.747,
+    "precision_alerta_alta": 0.666
+  }
+}
