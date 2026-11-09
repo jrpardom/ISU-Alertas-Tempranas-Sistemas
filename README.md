@@ -11,14 +11,14 @@ short_description: Alertas tempranas de deserción - ISC UdeC Fusagasugá
 
 # Prototipo · Sistema de Alertas Tempranas para la Permanencia
 
-Interfaz en Streamlit que estima el riesgo de deserción de estudiantes de Ingeniería de
+Interfaz en Streamlit que estima el riesgo de deserción de los Creadores de Oportunidades de Ingeniería de
 Sistemas y Computación (UdeC, Fusagasugá).
 
 ## Estructura
 
 ```
 app/
-├── app.py                       Interfaz (3 pestañas: estudiante, grupo CSV, sobre el modelo)
+├── app.py                       Interfaz (3 pestañas: Creador de Oportunidades, grupo CSV, sobre el modelo)
 ├── train_model.py               Entrena el modelo final desde models/*.csv
 ├── modelo/
 │   ├── modelo_desercion.joblib  Pipeline entrenado (scikit-learn)
@@ -26,7 +26,7 @@ app/
 ├── analisis/
 │   ├── comparar_modelos.py      Comparación de 5 modelos con validación cruzada 5×5
 │   └── comparacion_modelos.csv  Resultados
-├── ejemplo_grupo_sintetico.csv  25 estudiantes ficticios para probar la carga por lote
+├── ejemplo_grupo_sintetico.csv  25 Creadores de Oportunidades ficticios para probar la carga por lote
 ├── requirements.txt
 └── .streamlit/config.toml       Tema (azul institucional)
 ```

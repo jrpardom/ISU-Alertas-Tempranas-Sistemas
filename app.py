@@ -20,7 +20,7 @@ MODELO = APP_DIR / "modelo" / "modelo_desercion.joblib"
 META = APP_DIR / "modelo" / "metadata.json"
 
 st.set_page_config(
-    page_title="Alertas Tempranas · Permanencia ISC",
+    page_title="Alertas Tempranas · Creadores de Oportunidades ISC",
     page_icon=":material/school:",
     layout="wide",
 )
@@ -110,7 +110,7 @@ ETIQUETAS = {
     "ZONA_VIVIENDA_RESIDENCIA": "Zona de residencia",
     "COMUNA": "Comuna / procedencia",
     "HORAS_FUERA_CASA": "Horas fuera de casa",
-    "FRECUENCIA_USO_CANALES_ATENCION": "Uso de canales de atención al estudiante",
+    "FRECUENCIA_USO_CANALES_ATENCION": "Uso de canales de atención",
 }
 
 VALORES = {
@@ -136,7 +136,7 @@ SECCIONES = {
 }
 
 NIVELES = {
-    "alto": ("Riesgo alto", "Priorizar contacto con el estudiante: tutoría académica y remisión a Bienestar Universitario esta semana."),
+    "alto": ("Riesgo alto", "Priorizar contacto con el Creador de Oportunidades: tutoría académica y remisión a Bienestar Universitario esta semana."),
     "medio": ("Riesgo medio", "Hacer seguimiento: revisar avance en las áreas con notas bajas y ofrecer acompañamiento."),
     "bajo": ("Riesgo bajo", "Sin acción especial. Mantener el seguimiento habitual del semestre."),
 }
@@ -166,8 +166,8 @@ st.markdown(
     """
 <div class="app-header">
   <span class="app-kicker">Universidad de Cundinamarca · Ingeniería de Sistemas y Computación · Fusagasugá</span>
-  <h1 class="app-title">Alertas tempranas para la permanencia estudiantil</h1>
-  <p class="app-sub">Estima el riesgo de deserción de un estudiante a partir de su desempeño académico y su caracterización socioeconómica.</p>
+  <h1 class="app-title">Alertas tempranas para la permanencia de los Creadores de Oportunidades</h1>
+  <p class="app-sub">Estima el riesgo de deserción de un Creador de Oportunidades a partir de su desempeño académico y su caracterización socioeconómica.</p>
 </div>
 """,
     unsafe_allow_html=True,
@@ -223,7 +223,7 @@ def tarjeta_resultado(p: float):
 # ---------------------------------------------------------------------------
 # Interfaz
 # ---------------------------------------------------------------------------
-tab_ind, tab_lote, tab_modelo = st.tabs(["Evaluar estudiante", "Evaluar grupo (CSV)", "Sobre el modelo"])
+tab_ind, tab_lote, tab_modelo = st.tabs(["Evaluar Creador de Oportunidades", "Evaluar grupo (CSV)", "Sobre el modelo"])
 
 with tab_ind:
     col_form, col_res = st.columns([3, 2], gap="large")
@@ -240,7 +240,7 @@ with tab_ind:
                             entrada[col] = st.selectbox(etiqueta(col), opciones, index=defecto,
                                                         format_func=valor, key=col)
             enviado = st.form_submit_button("Calcular riesgo", type="primary", use_container_width=True)
-        st.caption("Los campos vienen con el valor más frecuente de la cohorte. Ajusta los que conozcas del estudiante.")
+        st.caption("Los campos vienen con el valor más frecuente de la cohorte. Ajusta los que conozcas del Creador de Oportunidades.")
 
     with col_res:
         if enviado:
@@ -263,7 +263,7 @@ with tab_ind:
                     )
                 html.append("</div>")
                 st.markdown("".join(html), unsafe_allow_html=True)
-                st.markdown('<p class="note">Comparado con el perfil más común de la cohorte. Es una orientación para la conversación con el estudiante, no un diagnóstico.</p>', unsafe_allow_html=True)
+                st.markdown('<p class="note">Comparado con el perfil más común de la cohorte. Es una orientación para la conversación con el Creador de Oportunidades, no un diagnóstico.</p>', unsafe_allow_html=True)
         else:
             st.markdown(
                 '<div class="card"><h4 style="margin-top:0">Cómo usarlo</h4>'
@@ -275,13 +275,13 @@ with tab_ind:
             )
 
 with tab_lote:
-    st.markdown("#### Evaluar un grupo de estudiantes")
+    st.markdown("#### Evaluar un grupo de Creadores de Oportunidades")
     st.markdown(
-        '<p class="note">Sube un CSV con una fila por estudiante y estas columnas (mismos valores que el formulario). '
+        '<p class="note">Sube un CSV con una fila por Creador de Oportunidades y estas columnas (mismos valores que el formulario). '
         'Puedes incluir una columna <code>ID</code> con un código interno; no incluyas nombres ni documentos.</p>',
         unsafe_allow_html=True,
     )
-    plantilla = pd.DataFrame([{**{"ID": "EST-001"}, **meta["moda"]}])[["ID"] + VARIABLES]
+    plantilla = pd.DataFrame([{**{"ID": "CO-001"}, **meta["moda"]}])[["ID"] + VARIABLES]
     st.download_button("Descargar plantilla CSV", plantilla.to_csv(index=False).encode("utf-8-sig"),
                        "plantilla_alertas.csv", "text/csv")
     archivo = st.file_uploader("Archivo CSV", type=["csv"])
@@ -316,7 +316,7 @@ with tab_lote:
                 "Nivel": [NIVELES[nivel(p)][0] for p in prob],
             }).sort_values("Probabilidad", ascending=False)
             k1, k2, k3, k4 = st.columns(4)
-            for col, lab, n in [(k1, "Estudiantes", len(res)),
+            for col, lab, n in [(k1, "Creadores de Oportunidades", len(res)),
                                 (k2, "Riesgo alto", (res["Nivel"] == "Riesgo alto").sum()),
                                 (k3, "Riesgo medio", (res["Nivel"] == "Riesgo medio").sum()),
                                 (k4, "Riesgo bajo", (res["Nivel"] == "Riesgo bajo").sum())]:
