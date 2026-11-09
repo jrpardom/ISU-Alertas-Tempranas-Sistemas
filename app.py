@@ -26,7 +26,7 @@ st.set_page_config(
 )
 
 # ---------------------------------------------------------------------------
-# Estilo (Minimalismo suizo · azul institucional · Fira Sans)
+# Estilo (Minimalismo suizo · verde institucional UdeC · Fira Sans)
 # ---------------------------------------------------------------------------
 st.markdown(
     """
@@ -286,10 +286,17 @@ with tab_lote:
                        "plantilla_alertas.csv", "text/csv")
     archivo = st.file_uploader("Archivo CSV", type=["csv"])
     if archivo is not None:
-        try:
-            df = pd.read_csv(archivo, dtype=str, encoding="utf-8-sig")
-        except Exception as e:  # noqa: BLE001
-            st.error(f"No se pudo leer el archivo: {e}")
+        # Acepta CSV con coma o punto y coma (Excel en español) y en UTF-8 o Windows-1252
+        crudo = archivo.getvalue()
+        df, error = None, None
+        for codificacion in ("utf-8-sig", "cp1252"):
+            try:
+                df = pd.read_csv(io.BytesIO(crudo), dtype=str, encoding=codificacion, sep=None, engine="python")
+                break
+            except Exception as e:  # noqa: BLE001
+                error = e
+        if df is None:
+            st.error(f"No se pudo leer el archivo: {error}")
             st.stop()
         df.columns = [c.strip() for c in df.columns]
         faltan = [c for c in VARIABLES if c not in df.columns]
